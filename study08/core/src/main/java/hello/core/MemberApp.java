@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-@SpringBootApplication
+@SpringBootApplication //component scan이 들어가있음!
 public class MemberApp {
 
 	public static void main(String[] args) {
@@ -25,7 +25,5 @@ public class MemberApp {
 		Member findMember = memberService.findMember(1L);
 		System.out.println("new member = " + member.getName());
 		System.out.println("find member = " + findMember.getName());
-
 	}
-
 }
