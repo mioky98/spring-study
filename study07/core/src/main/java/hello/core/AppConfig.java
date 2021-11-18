@@ -15,6 +15,10 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class AppConfig {
 
+	//@Bean memberService -> new MemoryMemberRepository()
+	//@Bean orderService -> new MemoryMemberRepository()
+	//싱글톤이 깨지는 것처럼 보인다!
+
 	//역할과 구현 구분이 확실!
 	@Bean //spring 컨테이너에 등록이 된다.
 	public MemberService memberService() {
