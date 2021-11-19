@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component //스프링 컨테이너에 자동으로 등록을 해주는 어노테이션
-@RequiredArgsConstructor
+//@RequiredArgsConstructor
 public class OrderServiceImpl implements OrderService{
 
 	private final MemberRepository memberRepository;
@@ -18,11 +18,11 @@ public class OrderServiceImpl implements OrderService{
 
 // 아래는 @RequiredArgsConstructor과 같은 코드
 
-//	@Autowired
-//	public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy){
-//		this.memberRepository = memberRepository;
-//		this.discountPolicy = discountPolicy;
-//	}
+	@Autowired
+	public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy rateDiscountPolicy){
+		this.memberRepository = memberRepository;
+		this.discountPolicy = rateDiscountPolicy;
+	}
 
 	@Override
 	public Order createOrder(Long memberId, String itemName, int itemPrice){
