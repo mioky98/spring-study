@@ -20,7 +20,7 @@ public class OrderServiceImpl implements OrderService{
 // 아래는 @RequiredArgsConstructor과 같은 코드
 
 	@Autowired
-	public OrderServiceImpl(MemberRepository memberRepository, @Qualifier("mainDiscountPolicy") DiscountPolicy discountPolicy){
+	public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy){
 		this.memberRepository = memberRepository;
 		this.discountPolicy = discountPolicy;
 	}
