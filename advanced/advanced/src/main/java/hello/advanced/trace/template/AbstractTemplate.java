@@ -3,6 +3,7 @@ package hello.advanced.trace.template;
 import hello.advanced.trace.TraceStatus;
 import hello.advanced.trace.logtrace.LogTrace;
 
+//템플릿
 public abstract class AbstractTemplate<T> {
 
     private final LogTrace trace;
