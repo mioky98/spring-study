@@ -39,6 +39,10 @@ public class HelloTraceV1 {
         }
     }
 
+    //level=0
+    //level=1 |-->
+    //level=2 |   | -->
+
     private static String addSpace(String prefix, int level) {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < level; i++) {

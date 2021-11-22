@@ -12,6 +12,7 @@ public class FieldServiceTest {
     @Test
     void field() {
         log.info("main start");
+
         Runnable userA = () -> {
             fieldService.logic("userA");
         };
@@ -19,7 +20,7 @@ public class FieldServiceTest {
             fieldService.logic("userB");
         };
 
-        Thread threadA = new Thread(userA);
+        Thread threadA = new Thread(userA); //userA 로직을 수행
         threadA.setName("thread-A");
         Thread threadB = new Thread(userB);
         threadB.setName("thread-B");
