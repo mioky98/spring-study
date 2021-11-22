@@ -1,5 +1,6 @@
 package hello.advanced.trace;
 
+//log의 상태 정보
 public class TraceStatus {
 
     private TraceId traceId;
@@ -7,8 +8,8 @@ public class TraceStatus {
     private String message;
 
     public TraceStatus(TraceId traceId, Long startTimeMs, String message) {
-        this.traceId = traceId;
-        this.startTimeMs = startTimeMs;
+        this.traceId = traceId; // 트랜잭션 ID와 Level
+        this.startTimeMs = startTimeMs; //로그 시작시간
         this.message = message;
     }
 
