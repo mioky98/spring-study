@@ -1,6 +1,7 @@
 package hello.proxy.app.v2;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -16,11 +17,13 @@ public class OrderControllerV2 {
 		this.orderService = orderServiceV2;
 	}
 
+	@GetMapping("/v2/request")
 	public String request(String itemId) { //LogTrace를 적용할 대상
 		orderService.orderItem(itemId);
 		return "ok";
 	}
 
+	@GetMapping("/v2/no-log")
 	public String noLog() { //LogTrace를 적용하지 않을 대상
 		return "ok";
 	}
