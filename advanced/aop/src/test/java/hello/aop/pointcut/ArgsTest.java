@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.aop.aspectj.AspectJExpressionPointcut;
 import java.lang.reflect.Method;
 import static org.assertj.core.api.Assertions.assertThat;
+
 public class ArgsTest {
 	Method helloMethod;
 	@BeforeEach
@@ -27,14 +28,14 @@ public class ArgsTest {
 		assertThat(pointcut("args(String,..)").matches(helloMethod, MemberServiceImpl.class)).isTrue();
 	}
 	/**
-	 * execution(* *(java.io.Serializable)): 메서드의 시그니처로 판단 (정적)
-	 * args(java.io.Serializable): 런타임에 전달된 인수로 판단 (동적)
+	 * execution(* *(java.io.Serializable)): 메서드의 시그니처로 판단 (정적) - 상위 타입 허용 x
+	 * args(java.io.Serializable): 런타임에 전달된 인수로 판단 (동적) - 상위 타입 허용
 	 */
 	@Test
 	void argsVsExecution() {
 		//Args
 		assertThat(pointcut("args(String)").matches(helloMethod, MemberServiceImpl.class)).isTrue();
-		assertThat(pointcut("args(java.io.Serializable)").matches(helloMethod, MemberServiceImpl.class)).isTrue();
+		assertThat(pointcut("args(java.io.Serializable)").matches(helloMethod, MemberServiceImpl.class)).isTrue(); //스트링 부모에 Serializable 존재
 		assertThat(pointcut("args(Object)").matches(helloMethod, MemberServiceImpl.class)).isTrue();
 		//Execution
 		assertThat(pointcut("execution(* *(String))").matches(helloMethod, MemberServiceImpl.class)).isTrue();
