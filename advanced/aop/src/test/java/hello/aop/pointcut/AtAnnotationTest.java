@@ -13,13 +13,16 @@ import org.springframework.context.annotation.Import;
 @Import(AtAnnotationTest.AtAnnotationAspect.class)
 @SpringBootTest
 public class AtAnnotationTest {
+
 	@Autowired
 	MemberService memberService;
+
 	@Test
 	void success() {
 		log.info("memberService Proxy={}", memberService.getClass());
 		memberService.hello("helloA");
 	}
+
 	@Slf4j
 	@Aspect
 	static class AtAnnotationAspect {
