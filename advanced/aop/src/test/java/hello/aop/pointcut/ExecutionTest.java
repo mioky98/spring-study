@@ -21,6 +21,7 @@ public class ExecutionTest {
 	public void init() throws NoSuchMethodException {
 		helloMethod = MemberServiceImpl.class.getMethod("hello", String.class);
 	}
+
 	@Test
 	void printMethod() {
 
