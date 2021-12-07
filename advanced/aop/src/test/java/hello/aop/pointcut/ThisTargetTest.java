@@ -39,6 +39,7 @@ public class ThisTargetTest {
 			log.info("[this-interface] {}", joinPoint.getSignature());
 			return joinPoint.proceed();
 		}
+
 		//부모 타입 허용
 		@Around("target(hello.aop.member.MemberService)")
 		public Object doTargetInterface(ProceedingJoinPoint joinPoint) throws
