@@ -1,0 +1,12 @@
+package hello.aop.trace.logtrace;
+
+import hello.aop.trace.TraceStatus;
+
+public interface LogTrace {
+
+    TraceStatus begin(String message);
+
+    void end(TraceStatus status);
+
+    void exception(TraceStatus status, Exception e);
+}
